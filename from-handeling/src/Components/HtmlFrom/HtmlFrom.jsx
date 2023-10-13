@@ -8,22 +8,24 @@ const HtmlFrom = () => {
   const handleFormChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if(type === "checkbox"){
-        if(checked){
-            setFromData((prev) => ({
-                ...prev, [name]: [...prev[name], value]
-            }))
-        }else{
-            setFromData((prev) => ({
-                ...prev, [name]: prev[name].filter((item) => item !== value)
-            }))
-        }
-    }else{
+    if (type === "checkbox") {
+      if (checked) {
         setFromData((prev) => ({
-            ...prev, [name]: value
-        }))
+          ...prev,
+          [name]: [...prev[name], value],
+        }));
+      } else {
+        setFromData((prev) => ({
+          ...prev,
+          [name]: prev[name].filter((item) => item !== value),
+        }));
+      }
+    } else {
+      setFromData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
-   
   };
   return (
     <>
@@ -100,8 +102,7 @@ const HtmlFrom = () => {
                   value="Male"
                 />
                   <label>Male</label>
-                <br />
-                 {" "}
+                <br /> {" "}
                 <input
                   onChange={handleFormChange}
                   type="radio"
@@ -110,8 +111,7 @@ const HtmlFrom = () => {
                   value="Female"
                 />
                   <label>Female</label>
-                <br />
-                 {" "}
+                <br /> {" "}
                 <input
                   onChange={handleFormChange}
                   type="radio"
@@ -125,7 +125,9 @@ const HtmlFrom = () => {
               </div>
 
               <div className="px-5 text-white">
-                <h2 className="text-xl text-sky-600 font-bold">Have Vehicles</h2>
+                <h2 className="text-xl text-sky-600 font-bold">
+                  Have Vehicles
+                </h2>
                 <input
                   onChange={handleFormChange}
                   type="checkbox"
@@ -133,8 +135,7 @@ const HtmlFrom = () => {
                   value="bike"
                 />
                   <label>I Have a Bike</label>
-                <br />
-                 {" "}
+                <br /> {" "}
                 <input
                   onChange={handleFormChange}
                   type="checkbox"
@@ -142,8 +143,7 @@ const HtmlFrom = () => {
                   value="car"
                 />
                   <label>I Have a car</label>
-                <br />
-                 {" "}
+                <br /> {" "}
                 <input
                   onChange={handleFormChange}
                   type="checkbox"
@@ -154,35 +154,95 @@ const HtmlFrom = () => {
                 <br />
                 <br />
               </div>
-              
-                <label className="text-white p-2" htmlFor="level">English Skills <span className="text-blue-500 text-xl font-bold">({formData?.englishLevel})</span></label>
-                <input onChange={handleFormChange} type="range" min="0" max='100' name="englishLevel" id="" />
 
+              <div>
+                <label htmlFor="">Chose your Country</label>
+              <select onChange={handleFormChange} id="city" name="city" form="cityForm">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Cittagong">Chottogram</option>
+              </select>
+              </div>
 
-                <label htmlFor="Linked">ADD your LinkedIn Profile Url:</label>
-                <input onChange={handleFormChange} type="url" name="LinkedIn" id="" />
+              <label className="text-white p-2" htmlFor="level">
+                English Skills{" "}
+                <span className="text-blue-500 text-xl font-bold">
+                  ({formData?.englishLevel})
+                </span>
+              </label>
+              <input
+                onChange={handleFormChange}
+                type="range"
+                min="0"
+                max="100"
+                name="englishLevel"
+                id=""
+              />
 
-                <label htmlFor="week">Add Week</label>
-                <input onChange={handleFormChange} type="week" name="week" id="" />
+              <label htmlFor="Linked">ADD your LinkedIn Profile Url:</label>
+              <input
+                onChange={handleFormChange}
+                type="url"
+                name="LinkedIn"
+                id=""
+              />
 
-                <label htmlFor="color">Your Favorite Color</label>
-                <input onChange={handleFormChange} type="color" name="favoriteColor" id="" />
+              <label htmlFor="week">Add Week</label>
+              <input
+                onChange={handleFormChange}
+                type="week"
+                name="week"
+                id=""
+              />
 
-                <label htmlFor="time">Add Local data and Time</label>
-                <input onChange={handleFormChange} type="datetime-local" name="localTime" id="" />
+              <label htmlFor="color">Your Favorite Color</label>
+              <input
+                onChange={handleFormChange}
+                type="color"
+                name="favoriteColor"
+                id=""
+              />
 
-                
-                <label htmlFor="file">Upload Profile pic</label>
-                <input onChange={handleFormChange} type="file" name="Your picture" id="" />
+              <label htmlFor="time">Add Local data and Time</label>
+              <input
+                onChange={handleFormChange}
+                type="datetime-local"
+                name="localTime"
+                id=""
+              />
 
-                <label htmlFor="month">this is hidden type</label>
-                <input onChange={handleFormChange} type="month" name="month" id="" />
+              <label htmlFor="file">Upload Profile pic</label>
+              <input
+                onChange={handleFormChange}
+                type="file"
+                name="Your picture"
+                id=""
+              />
 
-                <label htmlFor="search">please search here</label>
-                <input onChange={handleFormChange} type="search" name="search" id="" />
+              <label htmlFor="month">this is hidden type</label>
+              <input
+                onChange={handleFormChange}
+                type="month"
+                name="month"
+                id=""
+              />
 
-                <label htmlFor="time">what time you attend meeting</label>
-                <input onChange={handleFormChange} type="time" name="time" id="" />
+              <label htmlFor="search">please search here</label>
+              <input
+                onChange={handleFormChange}
+                type="search"
+                name="search"
+                id=""
+              />
+
+              <label htmlFor="time">what time you attend meeting</label>
+              <input
+                onChange={handleFormChange}
+                type="time"
+                name="time"
+                id=""
+              />
 
               <div className="flex justify-around">
                 <input
@@ -200,7 +260,7 @@ const HtmlFrom = () => {
           </div>
           <div className="basis=5/12 bg-white">
             <h2 className="text-center my-5 text-3xl text-sky-400 font-bold p-5">
-                From Output
+              From Output
             </h2>
             <div className="grid grid-cols-1 gap-5 px-5">
               <h2>
@@ -231,7 +291,8 @@ const HtmlFrom = () => {
               </h2>
               <h2>
                 {" "}
-                <span className="font-bold">Vehicles:</span> {formData?.vehicle?.join (', ')}
+                <span className="font-bold">Vehicles:</span>{" "}
+                {formData?.vehicle?.join(", ")}
               </h2>
             </div>
           </div>
